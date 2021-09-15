@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gantt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #chartdiv {
+            width: 100%;
+            height: 500px;
+        }
+
+        button {
+            border-radius: 0;
+            background-color: #fff;
+            color: #000;
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .popup-fade {
+            display: none;
+        }
+
+        .popup-fade:before {
+            content: '';
+            background: #000;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.7;
+            z-index: 9999;
+        }
+
+        .popup {
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            padding: 20px;
+            width: 360px;
+            margin-left: -200px;
+            background: #fff;
+            border: 1px solid orange;
+            border-radius: 4px;
+            z-index: 99999;
+            opacity: 1;
+        }
+
+        .popup button.editData {
+            margin-bottom: 5px;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .form-group {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group input {
+            padding: 5px;
+            border-radius: 0;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="popup-fade">
+        <div class="popup">
+            <a class="popup-close" href="#">Close</a>
+            <div class="form-group">
+                <label for="name">Name: </label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="from_date">From date:</label>
+                <input type="datetime-local" name="from_date" id="from_date" required>
+            </div>
+            <div class="form-group">
+                <label for="to_date">To date:</label>
+                <input type="datetime-local" name="to_date" id="to_date" required>
+            </div>
+            <div class="form-group">
+                <label for="color">Colour:</label>
+                <input type="color" name="color" id="color">
+            </div>
+            <button class="saveData">Submit</button>
+            <button class="editData" style="display: none;">Edit</button>
+            <button class="deleteData" style="display: none;">Delete</button>
+        </div>
+    </div>
+    <button class="popup-open">Add event</button>
+    <script src="jQuery.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="jQueryDateFormat.js"></script>
+
+    <script src="script.js"></script>
+
+    <!-- HTML -->
+    <div id="chartdiv"></div>
+    amCharts
+</body>
+
+</html>
